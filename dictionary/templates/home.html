@@ -1,0 +1,32 @@
+<!Doctypehtml>
+<html>
+<head>
+<title>Home</title>
+</head>
+<body>
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger alert-dismissable" role="alert">
+          <button class="close" data-dismiss="alert">
+              <small><sup>x</sup></small>
+          </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+<form  method="GET" action="{% url 'query' %}">
+        <input  type="search" placeholder="Enter word" aria-label="" name='word' value='{{ form.word.value|default_if_none:"" }}'>
+        <button  type="submit">Search</button>
+    </form>
+
+    <p></p>
+
+    <div>
+      <div class="container">
+      <p>
+           {{ definition }}
+      </p>
+      </div>
+    </div>
+</body>
+</html>
